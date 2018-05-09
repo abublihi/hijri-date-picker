@@ -51,6 +51,7 @@
   height: 25px;
   padding: 1px;
   border: 1px solid #fff;
+  text-align: center;
 }
 
 .month-day button {
@@ -67,4 +68,31 @@
 
 .selected-date {
   border: 1px solid #ddd !important;
+}
+
+.previous-month, .next-month{
+  position: absolute;
+  border: 0px;
+  font-weight: bold;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.previous-month {
+  right: 15px;
+}
+
+.next-month {
+  left: 15px;
+}
+
+.hidden {
+  display: none;
+}
+
+.hijri-date-picker {
+  margin-left: auto;
+  margin-right: auto;
+  width: 1000px;
+  direction: rtl;
 }
