@@ -28,17 +28,43 @@
 }
 
 .hijri-calender {
-  width: 218px;
+  width: 266px;
   direction: rtl;
+  background: #ffffff;
+  padding: 15px;
+  border: 1px solid #ddd;
+  margin-top: 2px;  
 }
 
 .day-names, .month-days {
   text-align: right;
 }
 
+.day-names {
+  border-bottom: 1px solid #ddd;
+}
+
 .day-name, .month-day{
   display: inline-block;
   margin: 2px;
-  width: 25px;
+  width: 30px;
+  height: 25px;
   padding: 1px;
+  border: 1px solid #fff;
+}
+
+.month-day button {
+  cursor: pointer;
+  border: 0px;
+  width: 30px;
+  padding: 5px;
+}
+
+.month-day button:focus {
+  border: 0px;
+  outline: unset;
+}
+
+.selected-date {
+  border: 1px solid #ddd !important;
 }
