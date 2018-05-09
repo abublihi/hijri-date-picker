@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import moment from 'moment-hijri';
+import { Manager, Reference, Popper } from 'react-popper';
 
 class App extends Component {
   render() {
@@ -47,14 +48,10 @@ class HijriDatePicker extends Component {
 
   setSelectedDate = (event) => {
     let time = this.state.time
-    time.iDate(parseInt(event.target.value))
+    time.iDate(parseInt(event.target.value, 10))
     this.setState({
       selectedDate: time.format('iYYYY/iMM/iDD')
     })
-
-    // // m = moment();
-    // time.startOf('iMonth');
-    // console.log(time.format('ddd'));
   }
 
   getMonthStartDayName = () => {
@@ -64,34 +61,52 @@ class HijriDatePicker extends Component {
 
   }
 
+  isSelectedDate = (i) => {
+    let time = this.state.time
+    time.iDate(parseInt(i, 10))
+    return this.state.selectedDate === time.format('iYYYY/iMM/iDD')
+  }
+
   render() {
-    console.log(this.getMonthStartDayName())
     let daysList = []
     for (let i = this.state.englishDayNames.indexOf(this.getMonthStartDayName()); i > 0; i--){
       daysList.push(
-        <div className="month-day"></div>
+        <div className="month-day" key={i.toString()}></div>
       )
     }
     for (let i = 1; i < this.monthDays() + 1; i++) {
       daysList.push(
-        <div className="month-day"><button onClick={this.setSelectedDate} value={i}>{i}</button></div>
+        <div className={this.isSelectedDate(i) ? 'month-day selected-date' : 'month-day'}>
+          <button onClick={this.setSelectedDate} value={i} key={i.toString()}>{i}</button>
+        </div>
       )
     }
 
     return (
       <div className="hijri-date-picker">
-        <input type="text" value={this.state.selectedDate} />
-        <div className="hijri-calender">
-          <strong className="month-name">{this.state.time.format('iMMMM') + ' ' + this.state.time.format('iYYYY')}</strong>
-          <DayNames />
-          <button onClick={this.subtractMonth} >></button>
-          <button onClick={this.addMonth} > {'<'} </button>
-          <div className="month-days">
-            {
-              daysList
-            }
-          </div>
-        </div>
+        <Manager>
+          <Reference>
+            {({ ref }) => (
+              <input type="text" value={this.state.selectedDate} ref={ref} />
+            )}
+          </Reference>
+          <Popper placement="bottom">
+            {({ ref, style, placement, arrowProps }) => (
+              <div className="hijri-calender" ref={ref} style={style} data-placement={placement}>
+               <strong className="month-name">{this.state.time.format('iMMMM') + ' ' + this.state.time.format('iYYYY')}</strong>
+               <DayNames />
+               {/* <button onClick={this.subtractMonth} >{'<'}</button>
+               <button onClick={this.addMonth} > > </button> */}
+               <div className="month-days">
+                 {
+                   daysList
+                 }
+               </div>
+               <div ref={arrowProps.ref} style={arrowProps.style} />
+             </div>
+            )}
+          </Popper>
+        </Manager>
       </div>
     )
   }
