@@ -26,3 +26,19 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.hijri-calender {
+  width: 218px;
+  direction: rtl;
+}
+
+.day-names, .month-days {
+  text-align: right;
+}
+
+.day-name, .month-day{
+  display: inline-block;
+  margin: 2px;
+  width: 25px;
+  padding: 1px;
+}
