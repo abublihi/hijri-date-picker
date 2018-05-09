@@ -90,9 +90,11 @@
   display: none;
 }
 
-.hijri-date-picker {
-  margin-left: auto;
-  margin-right: auto;
-  width: 1000px;
+.hijri-calender-controls {
   direction: rtl;
+  text-align: center;
+}
+.hijri-date-picker {
+  direction: rtl;
+  text-align: center;
 }
