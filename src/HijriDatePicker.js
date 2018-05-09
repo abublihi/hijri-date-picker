@@ -93,9 +93,11 @@ class HijriDatePicker extends Component {
             {({ ref, style, placement, arrowProps }) => (
               <div className={this.state.calenderShown? '' : 'hidden'}>
                 <div className="hijri-calender" ref={ref} style={style} data-placement={placement}>
-                  <button className="previous-month" onClick={this.subtractMonth} >{'<'}</button>
-                  <strong className="month-name">{this.state.time.format('iMMMM') + ' ' + this.state.time.format('iYYYY')}</strong>
-                  <button className="next-month" onClick={this.addMonth} > > </button>
+                  <div className="hijri-calender-controls">
+                    <button className="previous-month" onClick={this.subtractMonth} >{'<'}</button>
+                    <strong className="month-name">{this.state.time.format('iMMMM') + ' ' + this.state.time.format('iYYYY')}</strong>
+                    <button className="next-month" onClick={this.addMonth} > > </button>
+                  </div>
                   <DayNames />
                   <div className="month-days">
                     {
