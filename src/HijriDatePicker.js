@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
 import moment from 'moment-hijri';
 import { Manager, Reference, Popper } from 'react-popper';
-import onClickOutside from "react-onclickoutside";
+import onClickOutside from 'react-onclickoutside';
+import DayNames from './DayNames.js'
+
+import './HijriDatePicker.css';
 
 class HijriDatePicker extends Component {
   state = {
     time: moment(),
     monthDays: moment().iDaysInMonth(),
     selectedDate: '',
-    arabicDayNames: ['احد', 'اثنين', 'ثلاثاء', 'اربعاء', 'خميس', 'جمعة'],
     englishDayNames: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
     calenderShown: false
   }
@@ -27,9 +27,8 @@ class HijriDatePicker extends Component {
 
   subtractMonth = () => {
     let time = this.state.time.subtract(1, 'iMonth')
-    console.log(time.format('iMMMM'))
     this.setState({
-      time: this.state.time.subtract(1, 'iMonth')
+      time: time
     })
   }
 
@@ -117,21 +116,4 @@ class HijriDatePicker extends Component {
   }
 }
 
-class DayNames extends Component {
-  state = {
-    arabicDayNames: ['ح', 'ن', 'ث', 'ر', 'خ', 'ج', 'س'],
-    arabicFullDayNames: ['احد', 'اثنين', 'ثلاثاء', 'اربعاء', 'خميس', 'جمعة', 'سبت'],
-    englishDayNames: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
-  }
-  
-  render() {
-    return (
-      <div className="day-names">
-        {
-          this.state.arabicDayNames.map((item, key) =>  <div className="day-name" key={key.toString()}>{item}</div>)
-        }
-      </div>
-    )
-  }
-}
 export default onClickOutside(HijriDatePicker);
