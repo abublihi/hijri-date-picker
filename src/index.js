@@ -4,5 +4,5 @@ import './index.css';
 import HijriDatePicker from './HijriDatePicker';
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<HijriDatePicker />, document.getElementById('root'));
+ReactDOM.render(<HijriDatePicker inputName="hijri_date" className="sdfs" />, document.getElementById('root'));
 registerServiceWorker();

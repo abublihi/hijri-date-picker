@@ -86,29 +86,31 @@ class HijriDatePicker extends Component {
         <Manager>
           <Reference>
             {({ ref }) => (
-              <input type="text" value={this.state.selectedDate} ref={ref} onFocus={this.showCalender} />
+              <input type="text" name={this.props.inputName} className={this.props.className} value={this.state.selectedDate} ref={ref} onFocus={this.showCalender} />
             )}
           </Reference>
-          <Popper placement="bottom">
-            {({ ref, style, placement, arrowProps }) => (
-              <div className={this.state.calenderShown? '' : 'hidden'}>
-                <div className="hijri-calender" ref={ref} style={style} data-placement={placement}>
-                  <div className="hijri-calender-controls">
-                    <button className="previous-month" onClick={this.subtractMonth} >{'<'}</button>
-                    <strong className="month-name">{this.state.time.format('iMMMM') + ' ' + this.state.time.format('iYYYY')}</strong>
-                    <button className="next-month" onClick={this.addMonth} > > </button>
+          {this.state.calenderShown && 
+            <Popper placement="bottom">
+              {({ ref, style, placement, arrowProps }) => (
+                <div>
+                  <div className="hijri-calender" ref={ref} style={style} data-placement={placement}>
+                    <div className="hijri-calender-controls">
+                      <button className="previous-month" onClick={this.subtractMonth} >{'<'}</button>
+                      <strong className="month-name">{this.state.time.format('iMMMM') + ' ' + this.state.time.format('iYYYY')}</strong>
+                      <button className="next-month" onClick={this.addMonth} > > </button>
+                    </div>
+                    <DayNames />
+                    <div className="month-days">
+                      {
+                        daysList
+                      }
+                    </div>
+                    <div ref={arrowProps.ref} style={arrowProps.style} />
                   </div>
-                  <DayNames />
-                  <div className="month-days">
-                    {
-                      daysList
-                    }
-                  </div>
-                  <div ref={arrowProps.ref} style={arrowProps.style} />
                 </div>
-              </div>
-            )}
-          </Popper>
+              )}
+            </Popper>
+          }
         </Manager>
       </div>
     )
