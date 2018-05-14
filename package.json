@@ -1,6 +1,15 @@
 {
   "name": "hijri-date-picker",
   "version": "0.1.0",
+  "description": "A simple and reusble react component for hijir date pickre",
+  "homepage": "https://github.com/abusal7/HijirDatePicker",
+  "keywords": ["hijir-date-picker", "react", "hijir", "datepicker", "hijir-datepicker"],
+  "author": {
+    "name": "Abdulsalam Saleh Hammod Albulihi",
+    "email": "abublihi@gmail.com",
+    "url": "https://github.com/abusal7"
+  },
+  "main": "src/HijriDatePicker.js",
   "private": true,
   "dependencies": {
     "ajv": "^6.5.0",
