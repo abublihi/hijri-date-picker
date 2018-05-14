@@ -8,12 +8,12 @@ The package can be installed using npm, this package requires you to install *re
 npm install hijri-date-picker --save
 ```
 Or with script tag
-```
+```html
 <script src="https://unpkg.com/"></script>
 ```
 # Usage
 Example 1: npm installation
-```
+```javascript
 import React from  'react';
 import ReactDOM from  'react-dom';
 import HijriDatePicker from  './HijriDatePicker';
@@ -22,7 +22,7 @@ ReactDOM.render(<HijriDatePicker inputName="hijri_date" className="form-control"
 
 ```
 Example 2: script tag
-```
+```html
 <!DOCTYPE html>
 <html>
   <head>
