@@ -7,12 +7,16 @@ import DayNames from './DayNames.js'
 import './HijriDatePicker.css';
 
 class HijriDatePicker extends Component {
-  state = {
-    time: moment(),
-    monthDays: moment().iDaysInMonth(),
-    selectedDate: '',
-    englishDayNames: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
-    calenderShown: false
+  
+  constructor(props) {
+    super(props);
+    this.state = {
+      time: moment(),
+      monthDays: moment().iDaysInMonth(),
+      selectedDate: this.props.selectedDate,
+      englishDayNames: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
+      calenderShown: false
+    };
   }
 
   handleClickOutside = evt => {
