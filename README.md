@@ -29,12 +29,12 @@ Example 2: script tag
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>React Hijri DatePicker</title>
-    <link rel="stylesheet" href="https://unpkg.com/css/hijir-date-picker.css">
+    <link rel="stylesheet" href="dist/hijir-date-picker.css">
   </head>
   <body>
     <hijri-date-picker input-name="hijri_date" class-name="form-control" selected-date="1439/08/02"></hijri-date-picker>
   </body>
-  <script src="https://unpkg.com/css/hijir-date-picker.js"></script>
+  <script src="dist/hijir-date-picker.js"></script>
 </html>
 
 ```
