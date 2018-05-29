@@ -3,7 +3,13 @@
   "version": "0.1.0",
   "description": "A simple and reusble react component for hijir date pickre",
   "homepage": "https://github.com/abusal7/HijirDatePicker",
-  "keywords": ["hijir-date-picker", "react", "hijir", "datepicker", "hijir-datepicker"],
+  "keywords": [
+    "hijir-date-picker",
+    "react",
+    "hijir",
+    "datepicker",
+    "hijir-datepicker"
+  ],
   "author": {
     "name": "Abdulsalam Saleh Hammod Albulihi",
     "email": "abublihi@gmail.com",
@@ -19,7 +25,8 @@
     "react-dom": "^16.3.2",
     "react-onclickoutside": "^6.7.1",
     "react-popper": "^1.0.0-beta.6",
-    "react-scripts": "1.1.4"
+    "react-scripts": "1.1.4",
+    "reactive-elements": "^0.9.0"
   },
   "scripts": {
     "start": "react-scripts start",
