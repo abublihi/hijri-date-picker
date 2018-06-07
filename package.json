@@ -1,7 +1,7 @@
 {
   "name": "hijri-date-picker",
-  "version": "0.1.0",
-  "description": "A simple and reusble react component for hijir date pickre",
+  "version": "0.2.0",
+  "description": "A simple and reusable react component for hijir date pickre",
   "homepage": "https://github.com/abusal7/HijirDatePicker",
   "keywords": [
     "hijir-date-picker",
@@ -20,7 +20,7 @@
   "dependencies": {
     "ajv": "^6.5.0",
     "moment": "^2.22.1",
-    "moment-hijri": "^2.0.1",
+    "moment-hijri": "^2.1.1",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
     "react-onclickoutside": "^6.7.1",
