@@ -16,7 +16,6 @@
     "url": "https://github.com/abusal7"
   },
   "main": "src/HijriDatePicker.js",
-  "private": true,
   "dependencies": {
     "ajv": "^6.5.0",
     "moment": "^2.22.1",
