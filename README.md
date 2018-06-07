@@ -9,7 +9,7 @@ npm install hijri-date-picker --save
 ```
 Or with script tag
 ```html
-<script src="https://unpkg.com/"></script>
+<script src="dist/hijir-date-picker.js"></script>
 ```
 # Usage
 Example 1: npm installation
