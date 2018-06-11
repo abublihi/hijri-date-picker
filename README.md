@@ -5,7 +5,7 @@ A simple and reusble react component for hijir date pickre.
 # Installation
 The package can be installed using npm, this package requires you to install *react-popper*, *react-onclickoutside* and *moment-hijri*
 ```
-npm install hijri-date-picker --save
+npm i hijri-date-picker
 ```
 Or with script tag
 ```html
@@ -16,7 +16,8 @@ Example 1: npm installation
 ```javascript
 import React from  'react';
 import ReactDOM from  'react-dom';
-import HijriDatePicker from  './HijriDatePicker';
+import HijriDatePicker from 'hijri-date-picker';
+import '../node_modules/hijri-date-picker/build/css/index.css';
 
 ReactDOM.render(<HijriDatePicker inputName="hijri_date" className="form-control" selectedDate="1439/08/02" />, document.getElementById('root'));
 
