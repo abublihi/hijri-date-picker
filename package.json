@@ -1,7 +1,7 @@
 {
-  "name": "create-react-library",
+  "name": "hijri-date-picker",
   "version": "1.0.0",
-  "description": "React NPM library starter kit based on Facebook's create react app",
+  "description": "A simple and reusable react component for hijir date pickre",
   "main": "build/index.js",
   "scripts": {
     "start": "node scripts/start.js",
@@ -11,13 +11,24 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/DimitriMikadze/create-react-library.git"
+    "url": "git+https://github.com/abublihi/hijir-date-picker.git"
   },
-  "author": "Dimitri Mikadze <dimitrimikadze@gmail.com>",
+  "author": {
+    "name": "Abdulsalam Saleh Hammod Albulihi",
+    "email": "abublihi@gmail.com",
+    "url": "https://github.com/abusal7"
+  },
   "bugs": {
-    "url": "https://github.com/DimitriMikadze/create-react-library/issues"
+    "url": "https://github.com/abublihi/hijir-date-picker/issues"
   },
-  "homepage": "https://github.com/DimitriMikadze/create-react-library#readme",
+  "homepage": "https://github.com/abublihi/hijir-date-picker",
+  "keywords": [
+    "hijir-date-picker",
+    "react",
+    "hijir",
+    "datepicker",
+    "hijir-datepicker"
+  ],
   "license": "MIT",
   "dependencies": {},
   "devDependencies": {
