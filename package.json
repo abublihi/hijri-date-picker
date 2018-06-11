@@ -1,6 +1,6 @@
 {
   "name": "create-react-library",
-  "version": "2.0.0",
+  "version": "0.3.0",
   "description": "React NPM library starter kit based on Facebook's create react app",
   "main": "build/index.js",
   "scripts": {
