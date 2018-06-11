@@ -7,7 +7,6 @@ import DayNames from './DayNames.js'
 import './HijriDatePicker.css';
 
 class HijriDatePicker extends Component {
-  currentTime = moment()
   constructor(props) {
     super(props);
     this.state = {
