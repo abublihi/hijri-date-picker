@@ -88,7 +88,7 @@ class HijriDatePicker extends Component {
         <Manager>
           <Reference>
             {({ ref }) => (
-              <input type="text" name={this.props.inputName} className={this.props.className} value={this.state.selectedDate} ref={ref} onFocus={this.showCalender} />
+              <input type="text" autocomplete="off" name={this.props.inputName} className={this.props.className} value={this.state.selectedDate} ref={ref} onFocus={this.showCalender} />
             )}
           </Reference>
           {this.state.calenderShown && 
