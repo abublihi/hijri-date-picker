@@ -17,7 +17,7 @@ const MonthDay = styled.div`
   box-sizing: unset;
   border-radius: 4px;
   :hover {
-    border: 1px solid black;
+    ${props => props.noHover? '' : "border: 1px solid black"};
   };
 `
 
@@ -62,13 +62,13 @@ class MonthDaysView extends React.Component {
       let daysList = []
       for (let i = this.state.englishDayNames.indexOf(this.getMonthStartDayName()); i > 0; i--){
         daysList.push(
-          <MonthDay key={daysList.length + 1}></MonthDay>
+          <MonthDay key={daysList.length.toString()} noHover></MonthDay>
         )
       }
       for (let i = 1; i < this.monthDays() + 1; i++) {
         daysList.push(
           <MonthDay selected={this.isSelectedDate(i)}>
-            <MonthDayButton selected={this.isSelectedDate(i)} onClick={this.props.setSelectedDate} value={i} key={daysList.length + 1} type="button">{i}</MonthDayButton>
+            <MonthDayButton selected={this.isSelectedDate(i)} onClick={this.props.setSelectedDate} value={i} key={daysList.length.toString()} type="button">{i}</MonthDayButton>
           </MonthDay>
         )
       }
