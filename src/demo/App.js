@@ -4,7 +4,7 @@ import './ExampleStyle.css';
 
 const App = () => (
   <div id="app">
-    <HijirDatePicker inputName="hijri_date" className="input-style" selectedDate="1439/08/02"/>
+    <HijirDatePicker inputName="hijri_date" className="input-style" selectedDate="08/1439/02" dateFormat="iMM/iYYYY/iDD" quickSelect/>
   </div>
 );
 
