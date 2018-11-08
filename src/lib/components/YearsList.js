@@ -1,6 +1,20 @@
 // Hijri year (1356 to 1500)
 import React, { Component } from 'react'
+import styled from 'styled-components'
 
+const YearListContainer = styled.span`
+  padding: 5px;
+`
+
+const YearSelect = styled.select`
+  width: 100px;
+  -webkit-appearance: menulist-button;
+  background: transparent;
+  height: 25px;
+  border-radius: 4px;
+  font-family: sans-serif;
+  font-size: 12px;
+`
 class YearsList extends Component {
   
   state = {
@@ -21,11 +35,11 @@ class YearsList extends Component {
       )
     }
     return (
-      <div>
-        <select onChange={this.props.onChange}>
+      <YearListContainer>
+        <YearSelect onChange={this.props.onChange}>
           {yearsList} 
-        </select>
-      </div>
+        </YearSelect>
+      </YearListContainer>
     )
   }
 }

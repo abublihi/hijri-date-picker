@@ -1,4 +1,19 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+import styled from 'styled-components'
+
+const MonthListContainer = styled.span`
+  padding: 5px;
+`
+
+const MonthSelect = styled.select`
+  width: 100px;
+  -webkit-appearance: menulist-button;
+  background: transparent;
+  height: 25px;
+  border-radius: 4px;
+  font-family: sans-serif;
+  font-size: 14px;
+`
 
 class MonthsList extends Component {
   state = {
@@ -24,13 +39,13 @@ class MonthsList extends Component {
 
   render() {
     return (
-      <div>
-        <select onChange={this.props.onChange}>
+      <MonthListContainer>
+        <MonthSelect onChange={this.props.onChange}>
           {
             this.state.months.map((item, key) => <option selected={this.isSelected(item.number)} key={item.number} value={item.number}>{item.name}</option>)
           }
-        </select>
-      </div>
+        </MonthSelect>
+      </MonthListContainer>
     )
   }
 }

@@ -7,7 +7,6 @@ import DayNames from './DayNames.js'
 import MonthList from './MonthsList'
 import YearsList from './YearsList'
 import MonthDaysView from './MonthDaysView'
-import './HijriDatePicker.css';
 
 const HijriCalender = styled.div`
   width: 266px;
@@ -34,6 +33,13 @@ const ControlButton = styled.button`
   font-weight: bold;
   font-size: 15px;
   cursor: pointer;
+  background-color: #fff;
+  :hover {
+    color: #888888
+  }
+  :focus {
+    outline: unset
+  }
 `
 const PreviousButton = styled(ControlButton)`
   right: 15px;
@@ -45,13 +51,25 @@ const NextButton = styled(ControlButton)`
 const MonthName = styled.strong`
 `
 
+const YearAndMonthList = styled.div`
+  margin-top: 10px;
+`
+
+const ClearFix = styled.div`
+  &:after {
+    display: table;
+    content: "";
+    clear: both;
+  }
+`
+
 class HijriDatePicker extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentTime: this.props.selectedDate? moment(this.props.selectedDate, 'iYYYY/iMM/iDD') : moment(),
       selectedDate: this.props.selectedDate || '',
-      currentDay: moment().format('iYYYY/iMM/iDD'),
+      dateFormat: this.props.format || 'iYYYY/iMM/iDD',
+      currentTime: this.props.selectedDate? moment(this.props.selectedDate, 'iYYYY/iMM/iDD') : moment(),
       calenderShown: false
     };
   }
@@ -114,6 +132,11 @@ class HijriDatePicker extends Component {
    // 
   }
 
+  renderYearAndMonthList()
+  {
+    //
+  }
+
   render() {
     return (
       <div className="hijri-date-picker">
@@ -124,7 +147,13 @@ class HijriDatePicker extends Component {
             )}
           </Reference>
           {this.state.calenderShown && 
-            <Popper placement="bottom">
+            <Popper 
+              placement="bottom" 
+              modifiers={{ 
+                hide: { enabled: true},
+                preventOverflow: { enabled: true, boundariesElement: 'viewport'}, 
+              }}
+            >
               {({ ref, style, placement, arrowProps }) => (
                 <div>
                   <HijriCalender ref={ref} style={style} data-placement={placement}>
@@ -132,8 +161,10 @@ class HijriDatePicker extends Component {
                       <PreviousButton onClick={this.subtractMonth} type="button" >{'<'}</PreviousButton>
                       <MonthName>{this.state.currentTime.format('iMMMM') + '('+this.state.currentTime.format('iMM')+')' + ' ' + this.state.currentTime.format('iYYYY')}</MonthName>
                       <NextButton onClick={this.addMonth} type="button" > {'>'} </NextButton>
-                      <YearsList currentTime={this.state.currentTime} onChange={this.handelYearChange}/>
-                      <MonthList currentTime={this.state.currentTime} onChange={this.handelMonthChange}/>
+                      <YearAndMonthList>
+                        <YearsList currentTime={this.state.currentTime} onChange={this.handelYearChange}/>
+                        <MonthList currentTime={this.state.currentTime} onChange={this.handelMonthChange}/>
+                      </YearAndMonthList>
                     </HijriCalenderControls>
                     <DayNames />
                     <MonthDaysView currentTime={this.state.currentTime} selectedDate={this.state.selectedDate} setSelectedDate={this.setSelectedDate}/>
