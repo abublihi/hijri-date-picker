@@ -1,0 +1,9 @@
+#app {
+    text-align: center;
+}
+
+.input-style {
+    width: 165px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
