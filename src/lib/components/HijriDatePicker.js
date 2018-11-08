@@ -68,8 +68,8 @@ class HijriDatePicker extends Component {
     super(props);
     this.state = {
       selectedDate: this.props.selectedDate || '',
-      dateFormat: this.props.format || 'iYYYY/iMM/iDD',
-      currentTime: this.props.selectedDate? moment(this.props.selectedDate, 'iYYYY/iMM/iDD') : moment(),
+      dateFormat: this.props.dateFormat || 'iYYYY/iMM/iDD',
+      currentTime: this.props.selectedDate? moment(this.props.selectedDate, this.props.dateFormat || 'iYYYY/iMM/iDD') : moment(),
       calenderShown: false
     };
   }
@@ -96,7 +96,7 @@ class HijriDatePicker extends Component {
     let time = this.state.currentTime
     time.iDate(parseInt(event.target.value, 10))
     this.setState({
-      selectedDate: time.format('iYYYY/iMM/iDD'),
+      selectedDate: time.format(this.state.dateFormat),
       calenderShown: false
     })
   }
@@ -134,7 +134,7 @@ class HijriDatePicker extends Component {
 
   renderYearAndMonthList()
   {
-    //
+    
   }
 
   render() {
@@ -159,15 +159,18 @@ class HijriDatePicker extends Component {
                   <HijriCalender ref={ref} style={style} data-placement={placement}>
                     <HijriCalenderControls>
                       <PreviousButton onClick={this.subtractMonth} type="button" >{'<'}</PreviousButton>
-                      <MonthName>{this.state.currentTime.format('iMMMM') + '('+this.state.currentTime.format('iMM')+')' + ' ' + this.state.currentTime.format('iYYYY')}</MonthName>
+                      <MonthName>{this.state.currentTime.format('iMMMM') + ' ('+this.state.currentTime.format('iMM')+') ' + ' ' + this.state.currentTime.format('iYYYY')}</MonthName>
                       <NextButton onClick={this.addMonth} type="button" > {'>'} </NextButton>
-                      <YearAndMonthList>
-                        <YearsList currentTime={this.state.currentTime} onChange={this.handelYearChange}/>
-                        <MonthList currentTime={this.state.currentTime} onChange={this.handelMonthChange}/>
-                      </YearAndMonthList>
+                      {this.props.quickSelect &&
+                        <YearAndMonthList>
+                          <YearsList currentTime={this.state.currentTime} onChange={this.handelYearChange}/>
+                          <MonthList currentTime={this.state.currentTime} onChange={this.handelMonthChange}/>
+                        </YearAndMonthList>
+                      }
+                      
                     </HijriCalenderControls>
                     <DayNames />
-                    <MonthDaysView currentTime={this.state.currentTime} selectedDate={this.state.selectedDate} setSelectedDate={this.setSelectedDate}/>
+                    <MonthDaysView currentTime={this.state.currentTime} dateFormat={this.state.dateFormat} selectedDate={this.state.selectedDate} setSelectedDate={this.setSelectedDate}/>
                     <div ref={arrowProps.ref} style={arrowProps.style} />
                   </HijriCalender>
                 </div>

@@ -15,7 +15,10 @@ const MonthDay = styled.div`
   text-align: center;
   -webkit-box-sizing: unset !important;
   box-sizing: unset;
-  
+  border-radius: 4px;
+  :hover {
+    border: 1px solid black;
+  };
 `
 
 const MonthDayButton = styled.button`
@@ -25,12 +28,12 @@ const MonthDayButton = styled.button`
   padding: 5px;
   font-size: 14px
   :focus {
-    border: 0px;
     outline: unset;
   }
   border-radius: 4px;
-  background-color: ${props => props.selected ? "black;" : "white;"}
-  color: ${props => props.selected ? "white;" : ""}
+  background-color: ${props => props.selected ? "black;" : "white;"};
+  color: ${props => props.selected ? "white;" : ""};
+  
 `
 
 class MonthDaysView extends React.Component {
@@ -52,7 +55,7 @@ class MonthDaysView extends React.Component {
   isSelectedDate = (i) => {
     let time = this.props.currentTime
     time.iDate(parseInt(i, 10))
-    return this.props.selectedDate === time.format('iYYYY/iMM/iDD')
+    return this.props.selectedDate === time.format(this.props.dateFormat)
   }
 
   render(){
