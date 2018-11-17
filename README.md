@@ -43,12 +43,12 @@ ReactDOM.render(<HijriDatePicker inputName="hijri_date" className="form-control"
 this adds a quick select for year and month only add to the props `quickSelect`
 
 ```Html
-<HijriDatePicker inputName="hijri_date" className="form-control" selectedDate="1439/08/02" dateFormat="iYYYY/iMM/iDD" quickSelect/>
+<HijriDatePicker inputName="hijri_date" className="form-control" selectedDate="1439/08/02" dateFormat="iMM/iYYYY/iDD" quickSelect/>
 ```
 
 for the tag example will be `quick-select="true"`
 ```Html
-<hijri-date-picker input-name="hijri_date" class-name="form-control" selected-date="1439/08/02" date-format="iYYYY/iMM/iDD" quick-select="true"></hijri-date-picker>
+<hijri-date-picker input-name="hijri_date" class-name="form-control" selected-date="1439/08/02" date-format="iMM/iYYYY/iDD" quick-select="true"></hijri-date-picker>
 ```
 
 ![without quick](https://image.ibb.co/m9tEqA/hijri-date-picker-with-Quick-Select.png "with quick")
