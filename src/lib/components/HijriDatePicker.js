@@ -132,7 +132,7 @@ class HijriDatePicker extends Component {
 
   render() {
     return (
-      <div className="hijri-date-picker">
+      <div>
         <Manager>
           <Reference>
             {({ ref }) => (
