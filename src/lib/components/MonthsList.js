@@ -33,16 +33,12 @@ class MonthsList extends Component {
     ]
   }
 
-  isSelected = (monthNumber) => {
-    return this.props.currentTime.iMonth() === monthNumber
-  }
-
   render() {
     return (
       <MonthListContainer>
-        <MonthSelect onChange={this.props.onChange}>
+        <MonthSelect onChange={this.props.onChange} value={this.props.currentTime.iMonth()}>
           {
-            this.state.months.map((item, key) => <option selected={this.isSelected(item.number)} key={item.number} value={item.number}>{item.name}</option>)
+            this.state.months.map((item, key) => <option key={item.number} value={item.number}>{item.name}</option>)
           }
         </MonthSelect>
       </MonthListContainer>
