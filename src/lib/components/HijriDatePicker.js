@@ -20,6 +20,7 @@ const HijriCalender = styled.div`
   -webkit-box-sizing: unset;
   font-size: 14px;
   border-radius: 4px;
+  z-index: 1000;
 `
 
 const HijriCalenderControls = styled.div`
@@ -53,14 +54,6 @@ const MonthName = styled.strong`
 
 const YearAndMonthList = styled.div`
   margin-top: 10px;
-`
-
-const ClearFix = styled.div`
-  &:after {
-    display: table;
-    content: "";
-    clear: both;
-  }
 `
 
 class HijriDatePicker extends Component {
