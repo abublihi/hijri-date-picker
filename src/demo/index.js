@@ -5,3 +5,8 @@ import registerServiceWorker from './registerServiceWorker';
 
 ReactDOM.render(<App />, document.getElementById('root'));
 registerServiceWorker();
+
+
+// Createing a stand alone element
+// import HijriDatePickerElement from '../lib/components/HijriDatePickerElement'
+// export default HijriDatePickerElement;
