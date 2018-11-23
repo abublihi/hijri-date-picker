@@ -152,7 +152,7 @@ class HijriDatePicker extends Component {
                   <HijriCalender ref={ref} style={style} data-placement={placement}>
                     <HijriCalenderControls>
                       <PreviousButton onClick={this.subtractMonth} type="button" >{'<'}</PreviousButton>
-                      <MonthName>{this.state.currentTime.format('iMMMM') + ' ('+this.state.currentTime.format('iMM')+') ' + ' ' + this.state.currentTime.format('iYYYY')}</MonthName>
+                      <MonthName>{this.state.currentTime.format('iMMMM') + ' ('+this.state.currentTime.format('iMM')+') ' + this.state.currentTime.format('iYYYY')}</MonthName>
                       <NextButton onClick={this.addMonth} type="button" > {'>'} </NextButton>
                       {this.props.quickSelect &&
                         <YearAndMonthList>
