@@ -60,11 +60,19 @@ class HijriDatePicker extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedDate: this.props.selectedDate || '',
-      dateFormat: this.props.dateFormat || 'iYYYY/iMM/iDD',
-      currentTime: this.props.selectedDate? moment(this.props.selectedDate, this.props.dateFormat || 'iYYYY/iMM/iDD') : moment(),
+      selectedDate: "",
+      dateFormat: props.dateFormat || 'iYYYY/iMM/iDD',
+      currentTime: moment(),
       calenderShown: false
     };
+  }
+
+  componentDidUpdate(prevProps) {
+    const { selectedDate: prevSelectedDate } = prevProps;
+    const { selectedDate: nextSelectedDate } = this.props;
+    if (prevSelectedDate !== nextSelectedDate) {
+      this.setState({ ...this.state, selectedDate: nextSelectedDate })
+    }
   }
 
   handleClickOutside = evt => {
@@ -88,16 +96,29 @@ class HijriDatePicker extends Component {
   setSelectedDate = (event) => {
     let time = this.state.currentTime
     time.iDate(parseInt(event.target.value, 10))
+    const selectedDate = time.format(this.state.dateFormat)
     this.setState({
-      selectedDate: time.format(this.state.dateFormat),
+      selectedDate,
       calenderShown: false
     })
+    this.handleChange(selectedDate)
   }
 
   getMonthStartDayName = () => {
     let time = this.state.currentTime
     time.startOf('iMonth')
-    return time.format('dd') 
+    return time.format('dd')
+  }
+
+  handleFocus = (event) => {
+    const { onFocus = () => { } } = this.props
+    onFocus(event.target.value)
+    this.showCalender()
+  }
+
+  handleChange = (value) => {
+    const { onChange = () => { } } = this.props
+    onChange(value)
   }
 
   showCalender = () => {
@@ -122,27 +143,28 @@ class HijriDatePicker extends Component {
   }
 
   handelOnChange = (event) => {
-   // 
+    // 
   }
 
-  renderYearAndMonthList()
+  renderYearAndMonthList() 
   {
-    
+
   }
 
   render() {
+    const { className, name, placeholder, input, disabled } = this.props;
     return (
       <div>
         <Manager>
           <Reference>
             {({ ref }) => (
-              <input type="text" autoComplete="off" name={this.props.inputName} className={this.props.className} value={this.state.selectedDate} ref={ref} onFocus={this.showCalender} readOnly/>
+              <input type="text" autoComplete="off" {...{ className, name, placeholder, disabled, ...input }} value={this.state.selectedDate} ref={ref} onFocus={this.handleFocus} readOnly />
             )}
           </Reference>
-          {this.state.calenderShown && 
-            <Popper 
-              placement="bottom" 
-              modifiers={{ 
+          {this.state.calenderShown &&
+            <Popper
+              placement="bottom"
+              modifiers={{
                 hide: { enabled: true},
                 preventOverflow: { enabled: true, boundariesElement: 'viewport'}, 
               }}
