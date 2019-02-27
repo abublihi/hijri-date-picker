@@ -3,7 +3,9 @@ import HijirDatePicker from '../lib';
 import './ExampleStyle.css';
 
 class App extends Component {
-  state = {}
+  state = {
+    selectedDate: '11/1425/01'
+  }
 
   onChange = (value) => {
     console.log('OnChange -> Value is: ', value)

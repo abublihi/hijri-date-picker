@@ -21,6 +21,7 @@ const HijriCalender = styled.div`
   font-size: 14px;
   border-radius: 4px;
   z-index: 1000;
+  color: black !important;
 `
 
 const HijriCalenderControls = styled.div`
@@ -60,13 +61,20 @@ class HijriDatePicker extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedDate: "",
+      selectedDate: props.selectedDate || "",
       dateFormat: props.dateFormat || 'iYYYY/iMM/iDD',
       currentTime: moment(),
       calenderShown: false
     };
   }
 
+  componentDidMount() {
+    if (this.state.selectedDate) {
+      this.setState({
+        currentTime: moment(this.state.selectedDate, this.state.dateFormat),
+      })
+    }
+  }
   componentDidUpdate(prevProps) {
     const { selectedDate: prevSelectedDate } = prevProps;
     const { selectedDate: nextSelectedDate } = this.props;
