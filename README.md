@@ -1,6 +1,7 @@
 # React Hijri DatePicker
 A simple and reusble react component for hijir date pickre.
 
+# If you want a `standalone` web component take a look at [datepicker hijri](https://github.com/abublihi/datepicker-hijri)
 
 # Installation
 The package can be installed using npm, this package requires you to install *moment-hijri*, *react-popper*, *react-onclickoutside* and *styled_components*
