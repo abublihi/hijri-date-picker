@@ -1,5 +1,5 @@
 # React Hijri DatePicker
-A simple and reusble react component for hijir date pickre.
+A simple and reusble react component for famous hijir date pickre.
 
 # If you want a `standalone` web component take a look at [datepicker hijri](https://github.com/abublihi/datepicker-hijri)
 
